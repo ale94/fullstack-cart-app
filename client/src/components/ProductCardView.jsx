@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export const ProductCardView = ({ name, description, price }) => {
   return (
     <>
@@ -11,4 +13,10 @@ export const ProductCardView = ({ name, description, price }) => {
       </div>
     </>
   );
+};
+
+ProductCardView.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 };
