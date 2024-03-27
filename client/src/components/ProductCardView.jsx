@@ -30,6 +30,7 @@ export const ProductCardView = ({
 };
 
 ProductCardView.propTypes = {
+  handlerAdd: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

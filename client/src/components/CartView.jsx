@@ -1,4 +1,14 @@
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import { calculateTotal } from "../services/productService";
+
 export const CartView = ({ handlerDelete, items }) => {
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setTotal(calculateTotal(items));
+  }, [items]);
+
   const onDeleteProduct = (id) => {
     handlerDelete(id);
   };
@@ -39,11 +49,16 @@ export const CartView = ({ handlerDelete, items }) => {
               Total
             </td>
             <td colSpan={"2"} className="text-start fw-bold">
-              12345
+              {total}
             </td>
           </tr>
         </tfoot>
       </table>
     </>
   );
+};
+
+CartView.propTypes = {
+  handlerDelete: PropTypes.func.isRequired,
+  items: PropTypes.array.isRequired,
 };
